@@ -214,6 +214,14 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Spencer Fornaciari";
 				TargetAttributes = {
+					89546CF8184D8B80001C76C6 = {
+						DevelopmentTeam = 98932SP3YP;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					89546D21184D8B81001C76C6 = {
 						TestTargetID = 89546CF8184D8B80001C76C6;
 					};
@@ -395,6 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sfhelios/sfhelios-Prefix.pch";
 				INFOPLIST_FILE = "sfhelios/sfhelios-Info.plist";
@@ -408,6 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sfhelios/sfhelios-Prefix.pch";
 				INFOPLIST_FILE = "sfhelios/sfhelios-Info.plist";
@@ -477,6 +487,7 @@
 				89546D36184D8B81001C76C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		89546D37184D8B81001C76C6 /* Build configuration list for PBXNativeTarget "sfheliosTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +496,7 @@
 				89546D39184D8B81001C76C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
