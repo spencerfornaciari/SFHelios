@@ -7,7 +7,7 @@
 //
 
 #import "SFAppDelegate.h"
-
+#import <Orbiter/Orbiter.h>
 #import "SFMasterViewController.h"
 
 @implementation SFAppDelegate
@@ -24,8 +24,30 @@
     controller.managedObjectContext = self.managedObjectContext;
     
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert];
-    
     return YES;
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"Failed To Register For Remote Notifications: %@", error);
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSLog(@"Did Register");
+    
+    NSURL *serverURL = [NSURL URLWithString:@"http://heliospushtest.herokuapp.com/"];
+    Orbiter *orbiter = [[Orbiter alloc] initWithBaseURL:serverURL credential:nil];
+    [orbiter registerDeviceToken:deviceToken withAlias:nil success:^(id responseObject) {
+        NSLog(@"Registration Success: %@", responseObject);
+    } failure:^(NSError *error) {
+        NSLog(@"Registration Error: %@", error);
+    }];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    NSLog(@"Received Notification: %@", userInfo);
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
